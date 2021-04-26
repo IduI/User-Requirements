@@ -1,0 +1,375 @@
+body{
+    padding: 0;
+    margin: 0;
+    border: 0; 
+    background-color: #f9f5ff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+header{
+    color:#000000;
+    width: 100%;
+    height:350px; 
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: #96cbdc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    /* border-width: medium;
+    border-style: solid;
+    border-color: rgb(255, 251, 0); */
+}
+
+header div{
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+header div div{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
+#logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+img {
+    height:200px;
+    width: 200px;
+}
+
+
+
+
+/* Utilizado para a navegação entre as páginas */
+.navegacao{
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.navegacao div{
+    margin:10px;
+    color:#000000;
+    font-size: 1.5em;
+    background-color: #C4C4C4;
+    border: solid;
+
+    border-color: #C4C4C4;
+    border-radius: 30px;
+}
+/* Tornar o main responsivo, em pequena escala ele fica in-line */
+#flex_main{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    display:inline-block;
+    width: 100%;
+    
+}
+#main_esq{
+    background-color: #79bbca;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+#main_dir{
+    background-color: #b1dcea;
+    padding: 0;
+    margin: 0;
+    border: 0;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+#main_dir_att_estoque{
+    background-color: #b1dcea;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+table, td, th {    
+    border: 1px solid rgb(0, 0, 0);
+    text-align: left;
+}
+
+table {
+    justify-content: center;
+    border-collapse: collapse;
+
+    width: 100%;
+}
+th, td {
+    padding: 15px;
+}
+#Servicos{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: #6198a3;
+    width: 98%;
+    max-height:400px;
+    overflow-y:auto;
+}
+#cad_servicos{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: #6198a3;
+    width: 98%;
+    max-height:200px;
+    overflow-y:auto;
+}
+
+#cad_servico_form{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1em;
+}
+#cad_servico_form input[type=text]{
+    width: 50%;
+    margin: 5px;
+    background-color: #C4C4C4;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+}
+    
+#cad_servico_form input[type=submit]{
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: #C4C4C4;
+    border: 1px solid #C4C4C4;
+    border-radius: 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 14px;
+}
+#cad_produto_form{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1em;
+}
+#cad_produto_form input[type=text]{
+    width: 50%;
+    margin: 5px;
+    background-color: #C4C4C4;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+}
+    
+#cad_produto_form input[type=submit]{
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: #C4C4C4;
+    border: 1px solid #C4C4C4;
+    border-radius: 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 14px;
+}
+#cad_servico_form input[type=button]{
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: #C4C4C4;
+    border: 1px solid #C4C4C4;
+    border-radius: 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 14px;
+}
+input[type=button]{
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: #C4C4C4;
+    border: 1px solid #C4C4C4;
+    border-radius: 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 14px;
+
+}
+.justify_center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 1em;
+}
+
+
+/* Os links se quiser alterar */
+a:link{
+	color:#000000;
+    text-decoration: none;
+}
+a:visited{
+	color: #1b1b1b;
+    text-decoration: none;
+}
+a:active{
+	color: #b1dcea;
+    text-decoration: none;
+}
+a:hover{
+	color:#1b1b1b;
+	text-shadow: 3px 3px 5px white; 
+}
+
+footer {
+    text-align:center;
+}
+
+
+@media only screen and (min-width: 750px){
+
+
+    header{
+        color:#000000;
+        width: 100%;
+        height:250px; 
+        padding: 0;
+        margin: 0;
+        border: 0;
+        background-color: #96cbdc;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    #logo{
+        width:20%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    #tela{
+        width:80%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #tela div{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-around;
+    }
+
+    img {
+        height:220px;
+        width: 220px;
+    }
+    h1 {
+        height:100px;
+        font-size: 5em;
+    }
+
+    #flex_main{  
+        padding: 0;
+        margin: 0;
+        border: 0;  
+        display:flex;
+        width: 100%;
+        height: 725px;
+    }
+    #main_esq{
+        padding: 0;
+        margin: 0;
+        border: 0;
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        height: 100%; 
+    }
+    .navegacao div{
+        margin:10px;
+        color:#000000;
+        font-size: 2.2em;
+        background-color: #C4C4C4;
+        border: solid;
+        border-color: #C4C4C4;
+        border-radius: 30px;
+    }
+    #cabecalho_main_esq{
+        height:90%;
+    }
+    #rodape_main_esq{
+        height:10%;
+    }
+
+    #main_dir{
+        background-color: #b1dcea;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 100%;
+    }
+    #main_dir_att_estoque{
+        background-color: #b1dcea;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+    #Servicos{
+        margin-top:40px;
+        text-align: center;
+        font-size: 15px;
+        border-radius: 5px;
+        background-color: #6198a3;
+        width: 65%;
+        max-height:600px;
+        overflow-y:auto;
+    }
+    #cad_servicos{
+        text-align: center;
+        font-size: 1.2em;
+        border-radius: 5px;
+        background-color: #6198a3;
+        width: 100%;
+        max-height:200px;
+        overflow-y:auto;
+    }
+    .justify_tables{
+        display: flex;
+        justify-content: center;
+
+        /* border-width: medium;
+        border-style: solid;
+        border-color: rgb(255, 251, 0); */
+    }
+
+}
