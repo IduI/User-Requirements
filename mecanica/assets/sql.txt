@@ -1,0 +1,106 @@
+DROP DATABASE IF EXISTS mecanica;
+
+CREATE DATABASE mecanica DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+USE mecanica;
+
+DROP USER IF EXISTS 'admmecanica'@'localhost';
+
+CREATE USER 'admmecanica'@'localhost' IDENTIFIED BY '123456'; 
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON mecanica.* TO 'admmecanica'@'localhost';
+
+
+CREATE TABLE cliente (
+  codCli INTEGER AUTO_INCREMENT PRIMARY KEY,    
+  nome VARCHAR(50) NOT NULL, 
+  email VARCHAR(50) NOT NULL,
+  telefone INTEGER NOT NULL,
+  cidade VARCHAR(50) NOT NULL,
+  bairro VARCHAR(50) NOT NULL,
+  rua VARCHAR(50) NOT NULL,
+  numero INTEGER NOT NULL
+);
+
+CREATE TABLE ordemservico (
+  codServico INTEGER AUTO_INCREMENT PRIMARY KEY,
+  codCli INTEGER NOT NULL, 
+  dtRcb DATE NOT NULL,
+  dtEntrg DATE NOT NULL,
+  descr VARCHAR(300) NOT NULL,
+  orcamento FLOAT NOT NULL,
+  maodeobra FLOAT NOT NULL,
+  FOREIGN KEY (codCli) REFERENCES cliente(codCli)
+);
+
+CREATE TABLE peca (
+  codPeca INTEGER NOT NULL PRIMARY KEY, 
+  qtd INTEGER NOT NULL,
+  nome VARCHAR(50) NOT NULL, 
+  valorUnitario FLOAT NOT NULL, 
+  limiteMinBaixa INTEGER NOT NULL
+);
+
+CREATE TABLE pecasutilizservico (
+  codSerrvico INTEGER NOT NULL, 
+  codPeca INTEGER NOT NULL,
+  qtd INTEGER NOT NULL,
+  CONSTRAINT PK_pecasutilzservico PRIMARY KEY (codSerrvico,codPeca),
+  FOREIGN KEY (codSerrvico) REFERENCES ordemservico(codServico),
+  FOREIGN KEY (codPeca) REFERENCES peca(codPeca)
+);
+
+CREATE TABLE venda (
+  codVenda INTEGER AUTO_INCREMENT PRIMARY KEY,
+  codPeca INTEGER NOT NULL,
+  codCli INTEGER NOT NULL,
+  qtd INTEGER NOT NULL,
+  dtVenda DATE NOT NULL,
+  FOREIGN KEY (codPeca) REFERENCES peca(codPeca),
+  FOREIGN KEY (codCli) REFERENCES cliente(codCli)
+);
+
+CREATE TABLE despesa (
+  codDespesa INTEGER AUTO_INCREMENT PRIMARY KEY,
+  descr VARCHAR(300) NOT NULL,
+  valor FLOAT NOT NULL, 
+  prazoValidade DATE NOT NULL,
+  recorr boolean not null default 0
+);
+
+
+INSERT INTO peca values (220, 2,"Pedivela", 50, 4);
+INSERT INTO peca values (221, 2,"Maçaneta", 12, 5);
+INSERT INTO peca values (222, 2,"Câmara aro 26", 25, 15);
+INSERT INTO peca values (223, 2,"Câmara aro 20", 25, 15);
+INSERT INTO peca values (224, 2,"Câmara aro 29", 40, 15);
+INSERT INTO peca values (225, 2,"Câmara aro 16", 25, 15);
+INSERT INTO peca values (226, 2,"Câmara aro 24", 25, 15);
+INSERT INTO peca values (227, 2,"Coroa", 50, 10);
+INSERT INTO peca values (228, 2,"Roda livre", 50, 5);
+INSERT INTO peca values (229, 2,"Pega mão", 10, 12);
+INSERT INTO peca values (230, 2, "Pedal", 24, 8);
+INSERT INTO peca values (231, 2,"Garupeira", 50, 4);
+
+INSERT INTO cliente values (NULL, "Rafael Gama", "RafaelGama@gmail.com", 910923099, "Jaguara do Sul", "Pitangas", "Dos Bobo", 1);
+INSERT INTO cliente values (NULL, "Junior Gomes", "JuniorGomes@gmail.com", 913423099, "Jaguara do Sul", "Timboré", "Dos Bobo", 20);
+INSERT INTO cliente values (NULL, "Lima Dutra", "LimaDutra@gmail.com", 910928999, "Jaguara do Sul", "Timboré", "Dos Bobo", 300);
+INSERT INTO cliente values (NULL, "May Castro", "MayCastro@gmail.com", 230923099, "Jaguara do Sul", "Timboré", "Dos Bobo", 200);
+INSERT INTO cliente values (NULL, "Cristiano ronaldo", "Cristianoronaldo@gmail.com", 945923099, "Jaguara do Sul", "Timboré", "Dos Bobo", 201);
+INSERT INTO cliente values (NULL, "Bira Din", "BiraDin@gmail.com", 916723099, "Jaguara do Sul", "Timboré", "Dos Bobo", 0);
+INSERT INTO cliente values (NULL, "Dorneles Fonseca", "DornelesFonseca@gmail.com", 910934099, "Jaguara do Sul", "Timboré", "Dos Cono", 202);
+INSERT INTO cliente values (NULL, "Guilherme Rafael Graeff", "GuilhermeRafael@gmail.com", 910854099, "Jaguara do Sul", "Timboré", "Dos Bobo", 324);
+INSERT INTO cliente values (NULL, "Persona Quatro", "PersonaQuatro@gmail.com", 910143099, "Jaguara do Sul", "Condor", "Dos Bobo", 123);
+INSERT INTO cliente values (NULL, "Donatello", "Donatello@gmail.com", 911234099, "Jaguara do Sul", "Panambi", "Dos Bobo", 456);
+INSERT INTO cliente values (NULL, "Rafael", "Rafael@gmail.com", 910923092, "Jaguara do Sul", "Timboré", "Dos Bobo", 789);
+INSERT INTO cliente values (NULL, "Lou Cura Lou Cura", "LouCuraLouCura@gmail.com", 91142399, "Jaguara do Sul", "Timboré", "Dos Bobo", 852);
+
+INSERT INTO despesa values (NULL, "Descrição da despesa",250, "2020-12-05",0 );
+INSERT INTO despesa values (NULL, "Compra mês 11",3000, "2020-11-05",0 );
+INSERT INTO despesa values (NULL, "Carro Firma",300, "2020-12-05",0 );
+INSERT INTO despesa values (NULL, "Compra mes 7",2000, "2020-07-05",0 );
+INSERT INTO despesa values (NULL, "Descrição da despesa",200, "2020-08-05",0 );
+INSERT INTO despesa values (NULL, "Descrição da despesa",2, "2020-04-05",0 );
+INSERT INTO despesa values (NULL, "Presente natal funcionário",20, "2020-01-05",0 );
+INSERT INTO despesa values (NULL, "Um balde de pêssegos",201, "2020-02-05",0 );
+
