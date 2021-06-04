@@ -30,7 +30,7 @@
                     <div id="cabecalho_main_esq">
                         <nav class="navegacao">
                             <div><a href= "index.php">Menu Principal Tá ligado?</a></div>
-                            <div><a href= "views/s_servicos.php">Serviços</a></div>
+                            <div><a href= "views/s_servicos.php">Serviços, não to ligado!</a></div>
                             <div><a href= "views/t_estoque.php">Estoque</a></div>
                             <div><a href= "views/u_despesas.php">Despesas</a></div>
                             <div><a href= "views/v_vendas.php">Vendas</a></div>
